@@ -4,13 +4,13 @@ Zowe offers modern interfaces to interact with z/OS and allows you to work with 
 
 Zowe consists of the following main components.
 
-- **zLUX**: Contains a Web user interface (UI) that provides a full screen interactive experience. The Web UI includes many interactions that exist in 3270 terminals and web interfaces such as IBM z/OSMF.
+- [**zLUX**](#zlux): Contains a Web user interface (UI) that provides a full screen interactive experience. The Web UI includes many interactions that exist in 3270 terminals and web interfaces such as IBM z/OSMF.
 
-- **Explorer server**: Provides a range of APIs for the management of jobs, data sets, z/OS UNIX System Services files, and persistent data.
+- [**Explorer server**](#explorer-server): Provides a range of APIs for the management of jobs, data sets, z/OS UNIX System Services files, and persistent data.
 
-- **API Mediation Layer**: Provides an API abstraction layer through which APIs can be discovered, catalogued, and presented uniformly.
+- [**API Mediation Layer**](#api-mediation-layer): Provides an API abstraction layer through which APIs can be discovered, catalogued, and presented uniformly.
 
-- **Zowe CLI**: Provides a command-line interface that lets you interact with the mainframe remotely and use common tools such as Integrated Development Environments (IDEs), shell commands, bash scripts, and build tools for mainframe development. It provides a set of utilities and services for application developers that want to become efficient in supporting and building z/OS applications quickly.
+- [**Zowe CLI**](#zowe-cli): Provides a command-line interface that lets you interact with the mainframe remotely and use common tools such as Integrated Development Environments (IDEs), shell commands, bash scripts, and build tools for mainframe development. It provides a set of utilities and services for application developers that want to become efficient in supporting and building z/OS applications quickly.
 
 For details of each component, see the corresponding section.
 
@@ -19,8 +19,8 @@ For details of each component, see the corresponding section.
 zLUX modernizes and simplifies working on the mainframe. With zLUX, you can create applications to suit your specific needs. zLUX contains a web UI that has the following features:
 
 - The web UI works with the underlying REST APIs for data, jobs, and subsystem, but presents the information in a full screen mode as compared to the command line interface.
-- The web UI makes use of the leading-edge web presentation technology and is also extensible through web UI plug-ins to capture and present any variety of information.
-- The web UI includes common z/OS developer or system programmer tasks such as an editor for common text-based files like REXX or JCL along with general purpose data set actions for both Unix System Services (USS) and Partitioned Data Sets (PDS) plus Job Entry System (JES) logs.
+- The web UI makes use of leading-edge web presentation technology and is also extensible through web UI plug-ins to capture and present a wide variety of information.
+- The web UI facilitates common z/OS developer or system programmer tasks by providing an editor for common text-based files like REXX or JCL along with general purpose data set actions for both Unix System Services (USS) and Partitioned Data Sets (PDS) plus Job Entry System (JES) logs.
 
 zLUX consists of the following components:
 
@@ -38,7 +38,7 @@ zLUX consists of the following components:
 
 - **Application plug-ins**
 
-    Several application-type plug-ins are provided. For more information, see [Using zLUX application plug-ins](usingmvd.md#using-zlux-application-plug-ins).
+    Several application-type plug-ins are provided. For more information, see [Using zLUX application plug-ins](usingzlux.html#using-zlux-application-plug-ins).
 
 ## Explorer server
 
@@ -84,7 +84,7 @@ With Zowe CLI, you can interact with z/OS remotely in the following ways:
   - **Produce responses as JSON documents:**    
     Return data in JSON format on request for consumption in other programming languages.
 
-For more information about the available functionality in Zowe CLI, see [Zowe CLI Command Groups](cli-usingcli.md#zowe-cli-command-groups).
+For more information about the available functionality in Zowe CLI, see [Zowe CLI Command Groups](cli-usingcli.html#zowe-cli-command-groups).
 
 ### Zowe CLI Third-Party software agreements
 
@@ -131,8 +131,9 @@ To read each complete license, navigate to the GitHub repository and download th
 
 The API Mediation Layer provides a single point of access for mainframe service REST APIs. The layer offers enterprise, cloud-like features such as high-availability, scalability, dynamic API discovery, consistent security, a single sign-on experience, and documentation. The API Mediation Layer facilitates secure communication across loosely coupled microservices through the API Gateway. The API Mediation Layer includes an API Catalog that provides an interface to view all discovered microservices, their associated APIs, and Swagger documentation in a user-friendly manner. The Discovery Service makes it possible to determine the location and status of microservice instances running inside the ecosystem.  
 
-**Zowe API Mediation Layer Tutorials**
-- [How to Onboard an existing Spring Boot REST API service using Zowe API Mediation Layer](../guides/api-mediation-usingapiml.md)
+**More Information:**
+- [Onboard an existing Spring Boot REST API service using Zowe API Mediation Layer](../guides/api-mediation-usingapiml.md)
+- [Using API Catalog](api-mediation-api-catalog.md)
 
 ### Key features  
 * High availability of services in which application instances on a failing node are distributed among surviving nodes
@@ -162,8 +163,10 @@ The Discovery service is the central point in the API Gateway infrastructure tha
 The API Catalog is the catalog of published APIs and their associated documentation that are discoverable or can be available if provisioned from the service catalog. The API documentation is visualized using the Swagger UI. The API Catalog contains APIs of services available as product versions. A service can be implemented by one or more service instances, which provide exactly the same service for high-availability or scalability.
 
 
-**Zowe API Mediation Layer Tutorials**
-- [How to Onboard an existing Spring Boot REST API service using Zowe API Mediation Layer](../guides/api-mediation-usingapiml.md)
+**More Information:**
+- [Onboard an existing Spring Boot REST API service using Zowe API Mediation Layer](../guides/api-mediation-usingapiml.md)
+- [Using API Catalog](api-mediation-api-catalog.md)
+
 
 ### Zowe API Mediation Layer Third-Party software agreements
 

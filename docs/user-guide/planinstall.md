@@ -96,7 +96,9 @@ User IDs   | User IDs require a TSO segment (access) and an OMVS segment. During
 
     You could see a message similar to the following message, which indicates the port number:
 
-   ""IZUG349I: The z/OSMF STANDALONE Server home page can be accessed at  https://mvs.hursley.ibm.com:443/zosmf after the z/OSMF server is started on your system.""
+    ```
+    IZUG349I: The z/OSMF STANDALONE Server home page can be accessed at  https://mvs.hursley.ibm.com:443/zosmf after the z/OSMF server is started on your system.
+    ```
 
     In this example, the port number is 443. You will need this port number later.
 
@@ -171,11 +173,9 @@ The following information is required during the installation process. Make the 
 - The z/OSMF installation directory that contains `derby.jar`, for example, `/usr/lpp/zosmf/lib`.
 - The z/OSMF configuration user directory that contains the following z/OSMF files:
 
-      - `/bootstrap.properties`
-
-      - `/jvm.security.override.properties`
-
-      - `/resources/security/ltpa.keys`
+    - `/bootstrap.properties`
+    - `/jvm.security.override.properties`
+    - `/resources/security/ltpa.keys`
 
 - The HTTP and HTTPS port numbers of the explorer server. By default, they are 7080 and 7443.
 - The API Mediation Layer HTTP and HTTPS port numbers. You will be asked for 3 unique port numbers.
@@ -191,7 +191,7 @@ Before you install Zowe CLI, make sure your system meets the following requireme
 
 ### Supported platforms
 
-You can install Zowe CLI on any Windows or Linux operating system. For more information about known issues and workarounds, see [Troubleshooting installing Zowe CLI](troubleshootinstall.md#troubleshooting-installing-zowe-cli).
+You can install Zowe CLI on any Windows or Linux operating system. For more information about known issues and workarounds, see [Troubleshooting installing Zowe CLI](troubleshootinstall.html#troubleshooting-installing-zowe-cli).
 
 **Important!**
 

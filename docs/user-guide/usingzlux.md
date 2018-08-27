@@ -1,6 +1,6 @@
 # Using zLUX
 
-zLUX provides the ability to create application plug-ins. For more information, see [Creating zLUX application plug-ins](mvd-plugincreateappplugin.md). 
+zLUX provides the ability to create application plug-ins. For more information, see [Creating zLUX application plug-ins](mvd-creatingzluxappplugins.md). 
 
 ## Navigating MVD
 
@@ -57,7 +57,7 @@ The following views are available from the explorer server Web UI and are access
 
 ## Using zLUX application plug-ins
 
-Application plug-ins are applications that you can use to access the mainframe and to perform various tasks. Developers can create application plug-ins using a sample application as a guide. 
+Application plug-ins are applications that you can use to access the mainframe and to perform various tasks. Developers can create application plug-ins using a sample application as a guide. The following application plug-ins are installed by default:
 
 ### Hello World
 This sample application plug-in for developers demonstrates how to create a dataservice and how to create an application plug-in using Angular.
@@ -70,40 +70,7 @@ This application plug-in helps you find information about the important services
 
 ### TN3270
 This application plug-in provides a 3270 connection to the mainframe on
-which the Zowe Node Server runs. (Available from Rocket Software.)
+which the Zowe Node Server runs. 
 
 ### VT Terminal 
-This application plug-in provides a connection to UNIX System Services and UNIX. (Available from Rocket Software.)
-
-## zLUX logging
-
-zLUX generates log files in the following default locations:
-
-- Zowe Node Server: `zlux-example-server/log/nodeServer-yyyy-mm-dd-hh-mm.log`
-- ZSS: `zlux-example-server/log/zssServer-yyyy-mm-dd-hh-mm.log`
- 
-The Zowe Node Server logs and ZSS logs are timestamped in the format yyyy-mm-dd-hh-mm and older logs are deleted when a new log is created at server startup.
-
-The log files contain processing messages and statistics.
-
-### Controlling the zLUX logging location
-
-The zLUX server writes log information to a file and to the screen. (On Windows, logs are written to a file only.)
-
-#### ZLUX_NODE_LOG_DIR and ZSS_LOG_DIR environment variables
-
-To control where the information is logged, use the environment variable *ZLUX_NODE_LOG_DIR*, for the Zowe Node Server, and *ZSS_LOG_DIR*, for ZSS. While these variables are intended to specify a directory, if you specify a location that is a file name, zLUX will write the logs to the specified file instead (for example: `/dev/null` to disable logging). 
-
-When you specify the environment variables *ZLUX_NODE_LOG_DIR* and *ZSS_LOG_DIR* and they are directories rather than files, zLUX will perform timestamping and cleanup.
-
-#### ZLUX_NODE_LOG_FILE and ZSS_LOG_FILE environment variables
-
-If you set the log file name for the node server by setting the *ZLUX_NODE_LOG_FILE* environment variable, or if you set the log file for ZSS by setting the *ZSS_LOG_FILE* environment variable, there will only be one log file, and it will be overwritten.
-
-**Note**: When you set the *ZLUX_NODE_LOG_FILE* or *ZSS_LOG_FILE* environment variables, zLUX will not override the log names, set a timestamp, or delete the logs.
-
-If zLUX cannot create the directory or file, the server will run (but it might not perform logging properly).
-
-### Retaining logs
-By default, zLUX retains the last five logs. If you want to specify a different number of logs to retain, set *ZLUX_NODE_LOGS_TO_KEEP* (Zowe Node Server logs) or *ZSS_LOGS_TO_KEEP* (ZSS logs) to the number of logs that you want to keep. The default is 5.
-
+This application plug-in provides a connection to UNIX System Services and UNIX.

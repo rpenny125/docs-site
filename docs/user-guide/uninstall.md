@@ -1,18 +1,23 @@
-# Uninstalling Zowe
+# Uninstalling Zowe 
 
-You can uninstall Zowe if you no longer need to use it. Follow these procedures to uninstall the components of Zowe.
+You can uninstall Zowe if you no longer need to use it. Follow these procedures to uninstall each Zowe component.
+
+- [Uninstalling zLUX](#uninstalling-zlux)
+- [Uninstalling explorer server](#uninstalling-explorer-server)
+- [Uninstalling API Mediation Layer](#uninstalling-api-mediation-layer)
+- [Uninstalling Zowe CLI](#uninstalling-zowe-cli)
 
 ## Uninstalling zLUX
 
 **Follow these steps:**
 
-1. The zLUX server runs under the ZOWESVR started task, so it should terminate when ZOWESVR is stopped.  If it does not, use one of the following standard process signals to stop the server:
+1. The zLUX server (`zlux-server`) runs under the ZOWESVR started task, so it should terminate when ZOWESVR is stopped.  If it does not, use one of the following standard process signals to stop the server:
 
-    - SIGHUP
-    - SIGTERM
-    - SIGKILL
+    - `SIGHUP`
+    - `SIGTERM`
+    - `SIGKILL`
 
-2. Delete the original directories (except in the case where you have customized the installation to point to directories other than the original directories).
+2. Delete or overwrite the original directories. If you modified the `zluxserver.json` file so that it points to directories other than the default directories, do not delete or overwrite those directories.
 
 ## Uninstalling explorer server
 
@@ -94,7 +99,7 @@ The following steps describe how to list the profiles that you created, delete t
 
     **Note:** If you do not want to delete the Zowe CLI profiles from your PC, go to Step 5.
 
-2.  List all profiles that you created for a [Command Group](cli-usingcli.md#zowe-cli-command-groups) by issuing the following command:
+2.  List all profiles that you created for a [Command Group](cli-usingcli.html#zowe-cli-command-groups) by issuing the following command:
 
     ```
      zowe profiles list <profileType>
@@ -142,11 +147,11 @@ The following steps describe how to list the profiles that you created, delete t
 
         The uninstall process removes all Zowe CLI installation directories and files from your PC.
 
-6. Delete the following directory on your PC. The directory contains the Zowe CLI log files and other miscellaneous files that were generated when you used the product.
+6. Delete the `C:\Users\<user_name>\.brightside` directory on your PC. The directory contains the Zowe CLI log files and other miscellaneous files that were generated when you used the product.
 
-    **Tip:** Deleting the `C:\Users\<user_name>\.brightside`  directory does not harm your PC.
+    **Tip:** Deleting the directory does not harm your PC.
 
-1.  If you installed Zowe CLI from the online registry, issue the following command to clear your scoped npm registry:
+7.  If you installed Zowe CLI from the online registry, issue the following command to clear your scoped npm registry:
 
     ```
     npm config set @brightside:registry

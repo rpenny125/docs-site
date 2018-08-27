@@ -8,23 +8,23 @@ Follow these optional steps to configure the default connection to open for the 
 ### Setting up the TN3270 mainframe terminal application plug-in
 
 `_defaultTN3270.json` is a file in `tn3270-ng2/`, which is deployed during setup. Within this file, you can specify the following parameters to configure the terminal connection:
-    
+```    
       "host": <hostname>
       "port": <port>
       “security”: {
       type: <”telnet” or “tls”>
     }
-    
+```    
 ### Setting up the VT Terminal application plug-in
 
 `_defaultVT.json` is a file in `vt-ng2/`, which is deployed during setup. Within this file, you can specify the following parameters to configure the terminal connection:
- 
+``` 
     “host”:<hostname>
     “port”:<port>
     “security”: {
       type: <”telnet” or “ssh”>
     }
-    
+```    
 ## Configuring the zLUX Proxy Server and ZSS
 
 ### Configuration file
@@ -115,9 +115,9 @@ This topic describes application plug-ins that are defined in advance.
 
 In the configuration file, you can specify a directory that contains JSON files, which tell the server what application plug-in to include and where to find it on disk. The backend of these application plug-ins use the server's plug-in structure, so much of the server-side references to application plug-ins use the term *plug-in*.
 
-To include application plug-ins, define the location of the plug-ins directory in the configuration file, through the top-level attribute **pluginsDir**
+To include application plug-ins, define the location of the plug-ins directory in the configuration file, through the top-level attribute **pluginsDir**.
 
-**Note:** In this example, the directory for these JSON files is [/plugins](https://github.com/gizafoundation/zlux-example-server/tree/master/plugins). Yet, to separate configuration files from runtime files, the *zlux-example-server* repository copies the contents of this folder into `/deploy/instance/ZLUX/plugins`. So, the example configuration file uses the latter directory.
+**Note:** In this example, the directory for these JSON files is `/plugins`. Yet, to separate configuration files from runtime files, the `zlux-example-server` repository copies the contents of this folder into `/deploy/instance/ZLUX/plugins`. So, the example configuration file uses the latter directory.
 
 #### Plug-ins directory example
 ```
@@ -129,7 +129,7 @@ To include application plug-ins, define the location of the plug-ins directory i
 
 ### Logging configuration
 
-For more information, see [Logging Utility](mvd-logutility.md)
+For more information, see [Logging Utility](mvd-logutility.md).
 
 ### ZSS configuration
 
@@ -143,3 +143,34 @@ When you run the zLUX Proxy Server, specify the following flags to declare which
 
 - *-h*: Declares the host where ZSS can be found. Use as "-h \<hostname\>" 
 - *-P*: Declares the port at which ZSS is listening. Use as "-P \<port\>"
+
+## zLUX logging
+
+The zLUX log files contain processing messages and statistics. zLUX generates log files in the following default locations:
+
+- Zowe Node Server: `zlux-example-server/log/nodeServer-yyyy-mm-dd-hh-mm.log`
+- ZSS: `zlux-example-server/log/zssServer-yyyy-mm-dd-hh-mm.log`
+ 
+The Zowe Node Server logs and ZSS logs are timestamped in the format yyyy-mm-dd-hh-mm and older logs are deleted when a new log is created at server startup.
+
+
+### Controlling the zLUX logging location
+
+zLUX writes log information to a file and to the screen. (On Windows, logs are written to a file only.)
+
+#### ZLUX_NODE_LOG_DIR and ZSS_LOG_DIR environment variables
+
+To control where the information is logged, use the environment variable *ZLUX_NODE_LOG_DIR*, for the Zowe Node Server, and *ZSS_LOG_DIR*, for ZSS. While these variables are intended to specify a directory, if you specify a location that is a file name, zLUX will write the logs to the specified file instead (for example: `/dev/null` to disable logging). 
+
+When you specify the environment variables *ZLUX_NODE_LOG_DIR* and *ZSS_LOG_DIR* and you specify directories rather than files, zLUX will timestamp the logs and delete the older logs that exceed the *ZLUX_NODE_LOGS_TO_KEEP* threshold. 
+
+#### ZLUX_NODE_LOG_FILE and ZSS_LOG_FILE environment variables
+
+If you set the log file name for the node server by setting the *ZLUX_NODE_LOG_FILE* environment variable, or if you set the log file for ZSS by setting the *ZSS_LOG_FILE* environment variable, there will only be one log file, and it will be overwritten each time the server is launched.
+
+**Note**: When you set the *ZLUX_NODE_LOG_FILE* or *ZSS_LOG_FILE* environment variables, zLUX will not override the log names, set a timestamp, or delete the logs.
+
+If zLUX cannot create the directory or file, the server will run (but it might not perform logging properly).
+
+### Retaining logs
+By default, zLUX retains the last five logs. To specify a different number of logs to retain, set *ZLUX_NODE_LOGS_TO_KEEP* (Zowe Node Server logs) or *ZSS_LOGS_TO_KEEP* (ZSS logs) to the number of logs that you want to keep. For example, if you set *ZLUX_NODE_LOGS_TO_KEEP* to 10, when the eleventh log is created, the first log is deleted. The default is 5.
